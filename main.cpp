@@ -1,3 +1,7 @@
+//
+// Created by michal on 19.04.17.
+//
+
 #include <iostream>
 #include <QApplication>
 #include <QtWidgets/QLabel>

@@ -1,8 +1,9 @@
 //
-// Created by michal on 20.05.17.
+// Created by michal on 20.04.17.
 //
 
 #include "MainFractalWidget.h"
+#include "Generators.h"
 
 #include <qpushbutton.h>
 #include <qkeycode.h>
@@ -234,7 +235,7 @@ void MainFractalWidget::MoveAllWidgets(void)
     quit -> move( 0, oh - 48 );
     pbar -> move( 128, oh - 48 );
     pbar -> resize( ow - 128, 48 );
-    pixmap ->resize( ow - 128, oh - 48 );
+    pixmap -> resize( ow - 128, oh - 48 );
     pixmap ->fill();
 }
 

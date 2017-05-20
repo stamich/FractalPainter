@@ -13,7 +13,7 @@ find_package( Qt5Xml REQUIRED )
 find_package( Qt5PrintSupport REQUIRED )
 find_package( Qt5OpenGL REQUIRED)
 
-set(SOURCE_FILES main.cpp MainFractalWidget.cpp MainFractalWidget.h)
+set(SOURCE_FILES main.cpp MainFractalWidget.cpp MainFractalWidget.h Generators.cpp Generators.h)
 add_executable(Fractals ${SOURCE_FILES})
 target_link_libraries(Fractals Qt5::Widgets Qt5::Core Qt5::Network
         Qt5::Sql Qt5::OpenGL

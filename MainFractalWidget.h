@@ -1,11 +1,12 @@
 //
-// Created by michal on 20.05.17.
+// Created by michal on 20.04.17.
 //
 
 #ifndef FRACTALS_MAINFRACTALWIDGET_H
 #define FRACTALS_MAINFRACTALWIDGET_H
 
 #include <qwidget.h>
+#include "Generators.h"
 
 class QPushButton;
 class QPaintEvent;
