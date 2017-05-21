@@ -6,7 +6,7 @@
 #include "Generators.h"
 
 #include <qpushbutton.h>
-#include <qkeycode.h>
+//#include <qkeycode.h>
 #include <qmessagebox.h>
 #include <qstring.h>
 #include <qcolor.h>
@@ -21,8 +21,10 @@
 
 #include <fstream>
 
-MainFractalWidget::MainFractalWidget( QWidget *parent, const char *name)
-        : QWidget(parent, name)
+using namespace std;
+
+MainFractalWidget::MainFractalWidget( QWidget *parent, const char *name )
+        : QWidget( parent )
 {
     int i;
     Kernel k(4);
@@ -37,7 +39,7 @@ MainFractalWidget::MainFractalWidget( QWidget *parent, const char *name)
 
     gener.Init(k);
 
-    draw = new QPushButton( "Draw it!", this);
+    draw = new QPushButton( "Draw it!", this );
     quit = new QPushButton( "Quit", this );
     pbar = new QProgressBar( this );
     pixmap = new QPixmap( width()-128, height()-48 );
@@ -114,7 +116,7 @@ MainFractalWidget::~MainFractalWidget()
 
 void MainFractalWidget::mousePressEvent( QMouseEvent *mouse)
 {
-    if ( mouse->button()==QMouseEvent::LeftButton )
+    if ( mouse->button()==Qt::LeftButton )
     {
         int mx=mouse->x()-128;
         int my=mouse->y()-48;
@@ -160,7 +162,7 @@ void MainFractalWidget::drawOnPixmap(void)
 
     int X=width()-128, Y=height();
     int current=0;
-    pbar->setTotalSteps( Y );
+    pbar->setMaximum( Y );
 
     double R = params[5]*params[5];
     double dRe = (params[2]-params[0])/(double)(X-1);
@@ -196,7 +198,7 @@ void MainFractalWidget::drawOnPixmap(void)
             }
         }
 
-        pbar->setProgress( current++ );
+        pbar->setValue( current++ );
     }
     p.end();
     pbar -> reset();
@@ -224,7 +226,7 @@ void MainFractalWidget::paintEvent(QPaintEvent *pe)
         MoveAllWidgets();
     }
 
-    bitBlt(this, 128, 0, pixmap);
+    //bitBlt(this, 128, 0, pixmap);
 }
 
 // Strict private methods
@@ -235,8 +237,8 @@ void MainFractalWidget::MoveAllWidgets(void)
     quit -> move( 0, oh - 48 );
     pbar -> move( 128, oh - 48 );
     pbar -> resize( ow - 128, 48 );
-    pixmap -> resize( ow - 128, oh - 48 );
-    pixmap ->fill();
+    pixmap -> scaled( ow - 128, oh - 48 );
+    pixmap -> fill();
 }
 
 double MainFractalWidget::Normal(void)

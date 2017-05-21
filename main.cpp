@@ -6,19 +6,22 @@
 #include <QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <MainFractalWidget.h>
+#include <QtWidgets/QMainWindow>
+//#include <MainFractalWidget.h>
 #include "MainFractalWidget.h"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    QApplication app( argc, argv );
+    QApplication *app = new QApplication( argc, argv );
     MainFractalWidget mainFractalWidget(NULL, "My widget");
-    app.setMainWidget( &mainFractalWidget);
-    app.connect( &mainFractalWidget, SIGNAL( wantToQuit() ), &app, SLOT(quit() ) );
+    QMainWindow x;
+    x.setCentralWidget( &mainFractalWidget);
+    x.show();
+    x.connect( &mainFractalWidget, SIGNAL( wantToQuit() ), app, SLOT(quit() ) );
     mainFractalWidget.show();
-    return(app.exec());
+    return app->exec();
 
     //QLabel *label = new QLabel("label");
     //QPushButton *button = new QPushButton("click me");
@@ -28,3 +31,13 @@ int main(int argc, char **argv)
     //button->show();
     //return app.exec();
 }
+//int main(int argc,char *argv[])
+//{
+//    QApplication *my=new QApplication(argc,argv);
+//    QMainWindow x;
+//    QString ss="3D'E";
+//    QLabel *ee=new QLabel(ss,0);
+//    x.setCentralWidget(ee);
+//    x.show();
+//    return my->exec();
+//}
