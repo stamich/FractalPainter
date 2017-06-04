@@ -24,7 +24,7 @@
 using namespace std;
 
 MainFractalWidget::MainFractalWidget( QWidget *parent, const char *name )
-        //: QWidget( parent, name )
+        : QWidget( parent, name )
 {
     int i;
     Kernel k(4);
