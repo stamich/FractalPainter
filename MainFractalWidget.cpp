@@ -226,7 +226,7 @@ void MainFractalWidget::paintEvent(QPaintEvent *pe)
         MoveAllWidgets();
     }
 
-    //bitBlt(this, 128, 0, pixmap);
+    bitBlt(this, 128, 0, pixmap);
 }
 
 // Strict private methods
