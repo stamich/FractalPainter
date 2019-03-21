@@ -191,6 +191,7 @@ void MainFractalWidget::drawOnPixmap(void)
                     p.setPen(pen);
                     p.drawPoint( x, Y - y +1 );
                     // outlog << "( " << x << ", " << y << ", " << r << " ) "<< endl;
+                    // outlog << "( " << x << ", " << y << ", " << r << " ) "<< endl;
                     break;
                 }
                 im = 2.0 * re * im + c_im;

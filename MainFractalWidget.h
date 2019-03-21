@@ -1,5 +1,6 @@
 //
 // Created by michal on 20.04.17.
+// Revised 10.10.2018
 //
 
 #ifndef FRACTALS_MAINFRACTALWIDGET_H
